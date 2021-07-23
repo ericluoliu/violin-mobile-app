@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">violin-mobile-app</string>
+    <string name="MainHeader">Choose 2-Octave Scale</string>
+    <string name="SecondaryHeader">Choose Scale Direction</string>
+    <string name="fmajor">F Major</string>
+    <string name="descending">Descending</string>
+    <string name="ascending">Ascending</string>
+    <string name="play">Play</string>
+    <string name="bpm">Choose BPM</string>
+    <string name="startPlaying">Start Playing After 4 Beats\nPlay A Note Per Beat</string>
+    <string name="test">BRUHH</string>
+</resources>
