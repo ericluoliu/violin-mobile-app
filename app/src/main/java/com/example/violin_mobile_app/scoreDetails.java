@@ -21,7 +21,7 @@ public class scoreDetails extends AppCompatActivity {
         double[] inputFrequencies = bundle.getDoubleArray("inputFrequencies");
         String scale = bundle.getString("scale");
         String[] notes = bundle.getStringArray("notes");
-        String[] screenText = new String[15];
+        String[] screenText = new String[15];                   
         for (int i = 0; i < 15; i++) {
             double absDiff = Math.abs(frequencies[i] - inputFrequencies[i]);
             absDiff = Math.round(absDiff * 100.0) / 100.0;
@@ -40,7 +40,7 @@ public class scoreDetails extends AppCompatActivity {
 
         scaleName.setText(scale);
         inDepthDetails.setText(
-                notes[0] + " : " + screenText[0] + " Hz\n" +
+                        notes[0] + " : " + screenText[0] + " Hz\n" +
                         notes[1] + " : " + screenText[1] + " Hz\n" +
                         notes[2] + " : " + screenText[2] + " Hz\n" +
                         notes[3] + " : " + screenText[3] + " Hz\n" +
@@ -64,6 +64,7 @@ public class scoreDetails extends AppCompatActivity {
         startActivity(intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
     }
 
+    //back button that allows user to go back to the realRecordAudio activity to see their score again
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {

@@ -18,19 +18,21 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     private static final int NUMBER_OF_NOTES = 15;
-    private double[] frequencies = new double[NUMBER_OF_NOTES];
-    private String[] notes = new String[NUMBER_OF_NOTES];
-    private String scale;
+    private double[] frequencies = new double[NUMBER_OF_NOTES];     //store precise frequencies of notes in scale
+    private String[] notes = new String[NUMBER_OF_NOTES];           //store note name of each note in scale
+    private String scale;                                           //store scale name
     private String direction = "Ascending";
     private final int REQUEST_PERMISSION_RECORD_AUDIO = 1;
 
+    //Creation of main activity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        showRecordAudioPermission();
+        showRecordAudioPermission();                                //request user for recording permission
     }
 
+    //permission request
     @Override
     public void onRequestPermissionsResult(
             int requestCode,
@@ -49,6 +51,41 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    //permission request
+    private void showRecordAudioPermission() {
+        int permissionCheck = ContextCompat.checkSelfPermission(
+                this, Manifest.permission.RECORD_AUDIO);
+        if (permissionCheck != PackageManager.PERMISSION_GRANTED) {
+            if (ActivityCompat.shouldShowRequestPermissionRationale(this,
+                    Manifest.permission.RECORD_AUDIO)) {
+                showExplanation("Permission Needed", "Record Audio to Capture Violin Playing", Manifest.permission.RECORD_AUDIO, REQUEST_PERMISSION_RECORD_AUDIO);
+            } else {
+                requestPermission(Manifest.permission.RECORD_AUDIO, REQUEST_PERMISSION_RECORD_AUDIO);
+            }
+        } else {
+            Toast.makeText(MainActivity.this, "Permission (already) Granted!", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    //permission request
+    private void showExplanation(String title,
+                                 String message,
+                                 final String permission,
+                                 final int permissionRequestCode) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle(title)
+                .setMessage(message)
+                .setPositiveButton(android.R.string.ok, (dialog, id) -> requestPermission(permission, permissionRequestCode));
+        builder.create().show();
+    }
+
+    //permission request
+    private void requestPermission(String permissionName, int permissionRequestCode) {
+        ActivityCompat.requestPermissions(this,
+                new String[]{permissionName}, permissionRequestCode);
+    }
+
+    //shows user which scale was selected and direction of scale
     public void changeText(View view) {
         if (direction == null) {
             ((TextView) findViewById(R.id.userinfo)).setText(scale);
@@ -59,6 +96,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    //onClick: ascending button
     public void ascending(View view) {
         if (frequencies != null && direction.equals("Descending")) {
             frequencies = reverseDoubleArray(frequencies);
@@ -68,6 +106,7 @@ public class MainActivity extends AppCompatActivity {
         changeText(view);
     }
 
+    //onClick: descending button
     public void descending(View view) {
         if (frequencies != null && direction.equals("Ascending")) {
             frequencies = reverseDoubleArray(frequencies);
@@ -77,6 +116,7 @@ public class MainActivity extends AppCompatActivity {
         changeText(view);
     }
 
+    //start the next activity, transfer data to next activity
     public void play(View view) {
         EditText mEdit = findViewById(R.id.bpm);
         if (scale == null) {
@@ -94,37 +134,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private void showRecordAudioPermission() {
-        int permissionCheck = ContextCompat.checkSelfPermission(
-                this, Manifest.permission.RECORD_AUDIO);
-        if (permissionCheck != PackageManager.PERMISSION_GRANTED) {
-            if (ActivityCompat.shouldShowRequestPermissionRationale(this,
-                    Manifest.permission.RECORD_AUDIO)) {
-                showExplanation("Permission Needed", "Record Audio to Capture Violin Playing", Manifest.permission.RECORD_AUDIO, REQUEST_PERMISSION_RECORD_AUDIO);
-            } else {
-                requestPermission(Manifest.permission.RECORD_AUDIO, REQUEST_PERMISSION_RECORD_AUDIO);
-            }
-        } else {
-            Toast.makeText(MainActivity.this, "Permission (already) Granted!", Toast.LENGTH_SHORT).show();
-        }
-    }
-
-    private void showExplanation(String title,
-                                 String message,
-                                 final String permission,
-                                 final int permissionRequestCode) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle(title)
-                .setMessage(message)
-                .setPositiveButton(android.R.string.ok, (dialog, id) -> requestPermission(permission, permissionRequestCode));
-        builder.create().show();
-    }
-
-    private void requestPermission(String permissionName, int permissionRequestCode) {
-        ActivityCompat.requestPermissions(this,
-                new String[]{permissionName}, permissionRequestCode);
-    }
-
+    //helper method to reverse a String array
     public String[] reverseStrArray(String[] inputArr) {
         String[] ret = new String[NUMBER_OF_NOTES];
         for (int i = 0; i < inputArr.length; i++) {
@@ -133,6 +143,7 @@ public class MainActivity extends AppCompatActivity {
         return ret;
     }
 
+    //helper method to reverse a double array
     public double[] reverseDoubleArray(double[] inputArr) {
         double[] ret = new double[NUMBER_OF_NOTES];
         for (int i = 0; i < inputArr.length; i++) {
@@ -140,6 +151,12 @@ public class MainActivity extends AppCompatActivity {
         }
         return ret;
     }
+
+    /*
+
+    NOTES AND FREQUENCIES FOR EACH SCALE
+
+     */
 
     public void fmajor(View view) {
         scale = "F Major";
