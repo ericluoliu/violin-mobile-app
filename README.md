@@ -1,6 +1,6 @@
 # violin-mobile-app
 
-violin-mobile-app is an Android app built in Android Studio. 
+violin-mobile-app is an Android app built in Android Studio.  
 Users are able to test the intonation and accuracy of their 2-Octave Violin-Scales.
 
 ## Installation
