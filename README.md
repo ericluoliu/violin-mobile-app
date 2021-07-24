@@ -1,34 +1,14 @@
 # violin-mobile-app
 
-Foobar is a Python library for dealing with word pluralization.
+violin-mobile-app is an Android app built in Android Studio. 
+Users are able to test the intonation and accuracy of their 2-Octave Violin-Scales.
 
 ## Installation
 
-Use the package manager [pip](https://pip.pypa.io/en/stable/) to install foobar.
-
-```bash
-pip install foobar
-```
-
-## Usage
-
-```python
-import foobar
-
-# returns 'words'
-foobar.pluralize('word')
-
-# returns 'geese'
-foobar.pluralize('goose')
-
-# returns 'phenomenon'
-foobar.singularize('phenomena')
-```
+The violin-mobile-app can be installed in the Google PlayStore under the name "".
 
 ## Contributing
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+Pull requests are welcome. Any problems with the app should be first addressed with an issue.
 
-Please make sure to update tests as appropriate.
 
-## License
-[MIT](https://choosealicense.com/licenses/mit/)
+
