@@ -8,7 +8,20 @@ Users are able to test the intonation and accuracy of their 2-Octave Violin-Scal
 The violin-mobile-app can be installed in the Google PlayStore under the name "".
 
 ## Using the App
+Main Screen
 ![alt text](https://github.com/ericluoliu/violin-mobile-app/blob/master/example-pictures/MainActivity.jpeg?raw=true)
+
+Prepare to Play Screen 
+![alt text](https://github.com/ericluoliu/violin-mobile-app/blob/master/example-pictures/PreparationScreen.jpeg?raw=true)
+
+Audio Recording Begins - Start Playing
+![alt text](https://github.com/ericluoliu/violin-mobile-app/blob/master/example-pictures/RecordAudio.jpeg?raw=true)
+
+Result Screen
+![alt text](https://github.com/ericluoliu/violin-mobile-app/blob/master/example-pictures/ResultScreen.jpeg?raw=true)
+
+In-depth Score
+![alt text](https://github.com/ericluoliu/violin-mobile-app/blob/master/example-pictures/InDepthResults.jpeg?raw=true)
 
 ## Contributing
 Any problems with the app should be first addressed with an issue.  
