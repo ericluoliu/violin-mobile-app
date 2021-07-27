@@ -1,4 +1,4 @@
-package com.example.violin_mobile_app;
+package com.release.violin_mobile_app;
 
 import org.junit.Test;
 
