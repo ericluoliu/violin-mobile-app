@@ -5,7 +5,7 @@ Users are able to test the intonation and accuracy of their 2-Octave Violin-Scal
 
 ## Installation
 
-The violin-mobile-app can be installed in the Google PlayStore under the name "Violin Scale App".
+The violin-mobile-app can be installed in the Google PlayStore under the name "Violin Scale Test".
 
 ## Contributing
 Any problems with the app should be first addressed with an issue.  
